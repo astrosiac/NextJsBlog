@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import toast from 'react-hot-toast';
 import { useState } from "react";
 import { execFile } from "child_process";
+import { PostFeed } from "../components/PostFeed";
 
 //Max post to query per page
 const LIMIT = 1;
@@ -56,4 +57,5 @@ export default function Home() {
       {postsEnd && 'You have reached the end!'}
 
     </main>
-}
+)}
+
