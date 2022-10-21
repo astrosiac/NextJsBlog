@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
 import Loader from "../components/Loader";
-import toast from 'react-hot-toast';
 import { useState } from "react";
-import { execFile } from "child_process";
-import { PostFeed } from "../components/PostFeed";
+import PostFeed from "../components/PostFeed";
+import { firestore, fromMillis, postToJSON } from "../lib/firebase";
 
 //Max post to query per page
 const LIMIT = 1;
@@ -23,7 +21,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function Home() {
+export default function Home(props) {
   const [posts, setPosts] = useState(props.posts);
   const [loading, setLoading] = useState(false)
 
